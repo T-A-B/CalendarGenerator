@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    body {
+        font-family: Tahoma;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    #calendar {
+        width: 100%;
+    }
+
+    #calendar a {
+        color: #8e352e;
+        text-decoration: none;
+    }
+
+    #calendar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    #calendar li {
+        display: block;
+        float: left;
+        width:13.342%;
+        padding: 5px;
+        box-sizing:border-box;
+        border: 1px solid #ccc;
+        margin-right: -1px;
+        margin-bottom: -1px;
+    }
+
+    #calendar ul.weekdays {
+        height: 40px;
+        background: #8e352e;
+    }
+
+    #calendar ul.weekdays li {
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 20px;
+        border: none !important;
+        padding: 10px 6px;
+        color: #fff;
+        font-size: 13px;
+    }
+
+    #calendar .days li {
+        height: 180px;
+    }
+
+    #calendar .days li:hover {
+        background: #d3d3d3;
+    }
+
+    #calendar .date {
+        text-align: center;
+        margin-bottom: 5px;
+        padding: 4px;
+        background: #333;
+        color: #fff;
+        width: 20px;
+        border-radius: 50%;
+        float: right;
+    }
+
+    #calendar .event {
+        clear: both;
+        display: block;
+        font-size: 15px;
+        border-radius: 4px;
+        padding: 5px;
+        margin-top: 40px;
+        margin-bottom: 5px;
+        line-height: 14px;
+        background: #e4f2f2;
+        border: 1px solid #b5dbdc;
+        color: #009aaf;
+        text-decoration: none;
+    }
+
+    #calendar .event-desc {
+        color: #666;
+        margin: 3px 0 7px 0;
+        text-decoration: none;
+    }
+
+    #calendar .other-month {
+        background: #f5f5f5;
+        color: #666;
+    }
+
+    /* ============================
+                    Mobile Responsiveness
+       ============================*/
+
+
+    @media(max-width: 768px) {
+
+        #calendar .weekdays, #calendar .other-month {
+            display: none;
+        }
+
+        #calendar li {
+            height: auto !important;
+            border: 1px solid #ededed;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: -1px;
+        }
+
+        #calendar .date {
+            float: none;
+        }
+    }
+</style>
+<body>
+<div id="calendar-wrap">
+    <header>
+        <h1>August 2022</h1>
+        <h2>UCMS On Call Application Support Calendar</h2>
+    </header>
+    <div id="calendar">
+        <ul class="weekdays">
+            <li>Sunday</li>
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+            <li>Thursday</li>
+            <li>Friday</li>
+            <li>Saturday</li>
+        </ul>
+
+        <!-- Days from previous month -->
+
+        <ul class="days">
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_1}</div>
+      <!--          <div class="event">
+                    <div class="event-desc">
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div> -->
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_2}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_2}<br>
+                        {STAFF_APROG_2}<br>
+                        {STAFF_BPROG_2}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_3}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_3}<br>
+                        {STAFF_APROG_3}<br>
+                        {STAFF_BPROG_3}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_4}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_4}<br>
+                        {STAFF_APROG_4}<br>
+                        {STAFF_BPROG_4}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_5}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_5}<br>
+                        {STAFF_APROG_5}<br>
+                        {STAFF_BPROG_5}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+
+            <!-- Days in current month -->
+
+            <li class="day">
+                <div class="date">{DATE_NUMBER_6}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_6}<br>
+                        {STAFF_APROG_6}<br>
+                        {STAFF_BPROG_6}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_7}</div>
+                <!--        <div class="event">
+                          <div class="event-desc">
+                          </div>
+                          <div class="event-time">
+                              8:00am to 5:00pm
+                          </div>
+                      </div> -->
+                  </li>
+              </ul>
+
+              <!-- Row #2 -->
+
+        <ul class="days">
+            <li class="day">
+                <div class="date">{DATE_NUMBER_8}</div>
+            <!--    <div class="event">
+                    <div class="event-desc">
+
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div> -->
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_9}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_9}<br>
+                        {STAFF_APROG_9}<br>
+                        {STAFF_BPROG_9}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_10}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_10}<br>
+                        {STAFF_APROG_10}<br>
+                        {STAFF_BPROG_10}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_11}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_11}<br>
+                        {STAFF_APROG_11}<br>
+                        {STAFF_BPROG_11}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_12}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_12}<br>
+                        {STAFF_APROG_12}<br>
+                        {STAFF_BPROG_12}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_13}</div>
+                           <div class="event">
+                                <div class="event-desc">
+                                    {STAFF_ANALYST_13}<br>
+                                    {STAFF_APROG_13}<br>
+                                    {STAFF_BPROG_13}<br>
+                                </div>
+                                <div class="event-time">
+                                    8:00am to 5:00pm
+                                </div>
+                            </div>
+                        </li>
+                        <li class="day">
+                            <div class="date">{DATE_NUMBER_14}</div>
+                            <!--      <div class="event">
+                                    <div class="event-desc">
+
+                                    </div>
+                                    <div class="event-time">
+                                        8:00am to 5:00pm
+                                    </div>
+                                </div>  -->
+                            </li>
+                        </ul>
+
+                        <!-- Row #3 -->
+
+        <ul class="days">
+            <li class="day">
+                          <div class="date">{DATE_NUMBER_15}</div>
+                       <!--   <div class="event">
+                              <div class="event-desc">
+                              </div>
+                              <div class="event-time">
+                                  8:00am to 5:00pm
+                              </div>
+                          </div>  -->
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_16}</div>
+                          <div class="event">
+                              <div class="event-desc">
+                                  {STAFF_ANALYST_16}<br>
+                                  {STAFF_APROG_16}<br>
+                                  {STAFF_BPROG_16}<br>
+                              </div>
+                              <div class="event-time">
+                                  8:00am to 5:00pm
+                              </div>
+                          </div>
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_17}</div>
+                          <div class="event">
+                              <div class="event-desc">
+                                  {STAFF_ANALYST_17}<br>
+                                  {STAFF_APROG_17}<br>
+                                  {STAFF_BPROG_17}<br>
+                              </div>
+                              <div class="event-time">
+                                  8:00am to 5:00pm
+                              </div>
+                          </div>
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_18}</div>
+                          <div class="event">
+                              <div class="event-desc">
+                                  {STAFF_ANALYST_18}<br>
+                                  {STAFF_APROG_18}<br>
+                                  {STAFF_BPROG_18}<br>
+                              </div>
+                              <div class="event-time">
+                                  8:00am to 5:00pm
+                              </div>
+                          </div>
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_19}</div>
+                          <div class="event">
+                          <div class="event-desc">
+                              {STAFF_ANALYST_19}<br>
+                              {STAFF_APROG_19}<br>
+                              {STAFF_BPROG_19}<br>
+                          </div>
+                          <div class="event-time">
+                              8:00am to 5:00pm
+                          </div>
+                      </div>
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_20}</div>
+                                     <div class="event">
+                                         <div class="event-desc">
+                                             {STAFF_ANALYST_20}<br>
+                                             {STAFF_APROG_20}<br>
+                                             {STAFF_BPROG_20}<br>
+                                         </div>
+                                         <div class="event-time">
+                                             8:00am to 5:00pm
+                                         </div>
+                                     </div>
+                                 </li>
+                                 <li class="day">
+                                     <div class="date">{DATE_NUMBER_21}</div>
+                                     <!--             <div class="event">
+                                                    <div class="event-desc">
+
+                                                    </div>
+                                                    <div class="event-time">
+                                                        8:00am to 5:00pm
+                                                    </div>
+                                                </div> -->
+                                            </li>
+                                        </ul>
+
+                                        <!-- Row #4 -->
+
+        <ul class="days">
+            <li class="day">
+                <div class="date">{DATE_NUMBER_22}</div>
+                <!--    <div class="event">
+                       <div class="event-desc">
+
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div> -->
+               </li>
+               <li class="day">
+                   <div class="date">{DATE_NUMBER_23}</div>
+                   <div class="event">
+                       <div class="event-desc">
+                           {STAFF_ANALYST_23}<br>
+                           {STAFF_APROG_23}<br>
+                           {STAFF_BPROG_23}<br>
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div>
+               </li>
+               <li class="day">
+                   <div class="date">{DATE_NUMBER_24}</div>
+                   <div class="event">
+                       <div class="event-desc">
+                           {STAFF_ANALYST_24}<br>
+                           {STAFF_APROG_24}<br>
+                           {STAFF_BPROG_24}<br>
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div>
+               </li>
+               <li class="day">
+                   <div class="date">{DATE_NUMBER_25}</div>
+                   <div class="event">
+                       <div class="event-desc">
+                           {STAFF_ANALYST_25}<br>
+                           {STAFF_APROG_25}<br>
+                           {STAFF_BPROG_25}<br>
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div>
+               </li>
+               <li class="day">
+                   <div class="date">{DATE_NUMBER_26}</div>
+                   <div class="event">
+                       <div class="event-desc">
+                           {STAFF_ANALYST_26}<br>
+                           {STAFF_APROG_26}<br>
+                           {STAFF_BPROG_26}<br>
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div>
+               </li>
+               <li class="day">
+                   <div class="date">{DATE_NUMBER_27}</div>
+                          <div class="event">
+                              <div class="event-desc">
+                                  {STAFF_ANALYST_27}<br>
+                                  {STAFF_APROG_27}<br>
+                                  {STAFF_BPROG_27}<br>
+                              </div>
+                              <div class="event-time">
+                                  8:00am to 5:00pm
+                              </div>
+                          </div>
+
+                      </li>
+                      <li class="day">
+                          <div class="date">{DATE_NUMBER_28}</div>
+                                 <!--       <div class="event">
+                                            <div class="event-desc">
+
+                                            </div>
+                                            <div class="event-time">
+                                                8:00am to 5:00pm
+                                            </div>
+                                        </div> -->
+                                    </li>
+                                </ul>
+
+                                <!-- Row #5 -->
+
+        <ul class="days">
+            <li class="day">
+                <div class="date">{DATE_NUMBER_29}</div>
+                <!--          <div class="event">
+                             <div class="event-desc">
+
+                             </div>
+                             <div class="event-time">
+                                 8:00am to 5:00pm
+                             </div>
+                         </div> -->
+                     </li>
+                     <li class="day">
+                         <div class="date">{DATE_NUMBER_30}</div>
+                         <div class="event">
+                             <div class="event-desc">
+                                 {STAFF_ANALYST_30}<br>
+                                 {STAFF_APROG_30}<br>
+                                 {STAFF_BPROG_30}<br>
+                             </div>
+                             <div class="event-time">
+                                 8:00am to 5:00pm
+                             </div>
+                         </div>
+                     </li>
+                     <li class="day">
+                         <div class="date">{DATE_NUMBER_31}</div>
+                         <div class="event">
+                             <div class="event-desc">
+                                 {STAFF_ANALYST_31}<br>
+                                 {STAFF_APROG_31}<br>
+                                 {STAFF_BPROG_31}<br>
+                             </div>
+                             <div class="event-time">
+                                 8:00am to 5:00pm
+                             </div>
+                         </div>
+                     </li>
+                     <li class="day">
+                         <div class="date">{DATE_NUMBER_32}</div>
+                                   <div class="event">
+                                       <div class="event-desc">
+                                           {STAFF_ANALYST_32}<br>
+                                           {STAFF_APROG_32}<br>
+                                           {STAFF_BPROG_32}<br>
+                                       </div>
+                                       <div class="event-time">
+                                           8:00am to 5:00pm
+                                       </div>
+                                   </div>
+                               </li>
+                               <li class="day">
+                                   <div class="date">{DATE_NUMBER_33}</div>
+                                   <div class="event">
+                                       <div class="event-desc">
+                                           {STAFF_ANALYST_33}<br>
+                                           {STAFF_APROG_33}<br>
+                                           {STAFF_BPROG_33}<br>
+                                       </div>
+                                       <div class="event-time">
+                                           8:00am to 5:00pm
+                                       </div>
+                                   </div>
+                               </li>
+                               <li class="day">
+                                   <div class="date">{DATE_NUMBER_34}</div>
+                                   <div class="event">
+                                       <div class="event-desc">
+                                           {STAFF_ANALYST_34}<br>
+                                           {STAFF_APROG_34}<br>
+                                           {STAFF_BPROG_34}<br>
+                                       </div>
+                                       <div class="event-time">
+                                           8:00am to 5:00pm
+                                       </div>
+                                   </div>
+                               </li>
+                               <li class="day">
+                                   <div class="date">{DATE_NUMBER_35}</div>
+                                   <!--                 <div class="event">
+                                                      <div class="event-desc">
+
+                                                      </div>
+                                                      <div class="event-time">
+                                                          8:00am to 5:00pm
+                                                      </div>
+                                                  </div> -->
+                                              </li>
+                                          </ul>
+
+                                          <!-- Row #6 -->
+
+
+        <ul class="days">
+            <li class="day">
+                <div class="date">{DATE_NUMBER_36}</div>
+                <!--    <div class="event">
+                       <div class="event-desc">
+
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div> -->
+            </li>
+            <li class="day">
+                <div class="date">{DATE_NUMBER_37}</div>
+                    <div class="event">
+                       <div class="event-desc">
+                           {STAFF_ANALYST_37}<br>
+                           {STAFF_APROG_37}<br>
+                           {STAFF_BPROG_37}<br>
+                       </div>
+                       <div class="event-time">
+                           8:00am to 5:00pm
+                       </div>
+                   </div>
+               </li>
+               <li class="day other-month">
+                   <div class="date">{DATE_NUMBER_38}</div> <!-- Next Month -->
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_38}<br>
+                        {STAFF_APROG_38}<br>
+                        {STAFF_BPROG_38}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_39}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST_39}<br>
+                        {STAFF_APROG_39}<br>
+                        {STAFF_BPROG_39}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_40}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST}<br>
+                        {STAFF_APROG}<br>
+                        {STAFF_BPROG}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_41}</div>
+                <div class="event">
+                    <div class="event-desc">
+                        {STAFF_ANALYST}<br>
+                        {STAFF_APROG}<br>
+                        {STAFF_BPROG}<br>
+                    </div>
+                    <div class="event-time">
+                        8:00am to 5:00pm
+                    </div>
+                </div>
+            </li>
+            <li class="day other-month">
+                <div class="date">{DATE_NUMBER_42}</div>
+                <!--             <div class="event">
+                               <div class="event-desc">
+
+                               </div>
+                               <div class="event-time">
+                                   8:00am to 5:00pm
+                               </div>
+                           </div> -->
+                       </li>
+                       <li class="day other-month">
+                           <div class="date">{DATE_NUMBER_43}</div>
+                        <!--   <div class="event">
+                               <div class="event-desc">
+
+                               </div>
+                               <div class="event-time">
+                                   8:00am to 5:00pm
+                               </div>
+                           </div> -->
+                       </li>
+                   </ul>
+
+               </div><!-- /. calendar -->
+</div><!-- /. wrap -->
+</body>
+</html>
